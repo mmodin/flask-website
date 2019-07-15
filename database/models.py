@@ -1,8 +1,9 @@
-from shared_models import db
+from database.shared import db
 from sqlalchemy import Column, Date, DateTime, Integer, String, Sequence,ForeignKey
 from datetime import datetime
 from config import DB_CONNECT_STRING
 from werkzeug.security import generate_password_hash, check_password_hash
+
 
 class User(db.Model):
 	__tablename__ = "users"

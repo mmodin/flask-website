@@ -1,8 +1,7 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
-from models import User
-from shared_models import db
-from password import hash_plaintext_pw
-from database import db_validate_user_pw, db_register_new_user
+from database.models import User
+from database.shared import db
+from database.database import db_validate_user_pw, db_register_new_user
 from config import DB_CONNECT_STRING
 
 

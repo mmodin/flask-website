@@ -1,5 +1,5 @@
-from shared_models import db
-from models import User
+from database.shared import db
+from database.models import User
 from config import DB_CONNECT_STRING
 
 
