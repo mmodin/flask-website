@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/static/style.css" type="text/css"> 
+{% block body %}
+<form action="/register" method="POST">
+    <div class="login">
+        <div class="login-screen">
+            <div class="app-title">
+                <h1>Sign Up</h1>
+            </div>
+            <div class="login-form">
+                <div class="control-group">
+					{{ form.username(class_="login-field", placeholder="Username") }}
+                </div>
+				<div class="control-group">
+					{{ form.email(class_="login-field", placeholder="Email") }}
+                </div>
+                <div class="control-group">
+                    {{ form.password(class_="login-field", placeholder="Password") }}
+                </div>
+				<div class="control-group">
+                    {{ form.confirm(class_="login-field", placeholder="Confirm Password") }}
+                </div>
+				<div class="control-group">
+					<p>I accept the TOS</p> {{form.accept_tos}}
+				</div>
+                <input type="submit" value="Register" class="btn">
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

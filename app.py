@@ -3,7 +3,7 @@ from database.models import User
 from database.shared import db
 from database.database import db_validate_user_pw, db_register_new_user
 from config import DB_CONNECT_STRING
-
+from forms import RegistrationForm
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = DB_CONNECT_STRING
@@ -37,6 +37,20 @@ def signup():
 		else:
 			flash("bblbllblblb")
 	return render_template("signup.html")
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+	form = RegistrationForm(request.form)
+	if request.method == 'POST' and form.validate():
+		db_register_new_user(
+			form.username.data, 
+			form.password.data, 
+			form.email.data
+		)
+		flash('Thanks for registering')
+		return redirect(url_for('login'))
+	return render_template('register_form_template.html', form=form)
 		
 		
 @app.route("/login", methods=["GET", "POST"])

@@ -6,7 +6,8 @@ def is_valid_password(password):
 	upper = r"[A-Z]"
 	digit = r"[0-9]"
 	special = r"[#?!@$%^&*-]"
-
+	min_length = 10
+	
 
 def hash_plaintext_pw(plaintext_pw):
 	return bcrypt.hashpw(plaintext_pw.encode(), bcrypt.gensalt())
